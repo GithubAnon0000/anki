@@ -728,13 +728,16 @@ the AddCards dialog) should be implemented in the user of this component.
                                 {#if cols[index] === "dupe"}
                                     <DuplicateLink />
                                 {/if}
-                                <slot
-                                    name="field-state"
-                                    {field}
-                                    {index}
-                                    show={fields[index] === $hoveredField ||
-                                        fields[index] === $focusedField}
-                                />
+                                <div style="display:flex; align-items:center;">
+                                    <slot
+                                        name="field-state"
+                                        {field}
+                                        {index}
+                                        show={fields[index] === $hoveredField ||
+                                            fields[index] === $focusedField}
+                                    />
+                                    <span style="margin-left: 0.4em; margin-right: 0.8em; background: #9ccf9d; border-radius: 0.8em; border: 1px solid #999; padding: 0.2em 0.4em; font-size: small;">sticky</span>
+                                <div>
                                 {#if plainTextDefaults[index]}
                                     <RichTextBadge
                                         show={!fieldsCollapsed[index] &&
